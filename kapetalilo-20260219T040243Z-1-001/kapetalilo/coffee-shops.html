@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coffee Shops | Kape Ta Iloilo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">☕ Kape Ta Iloilo</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="coffee-beans.html">Beans</a>
+        <a href="brewing-guide.html">Brew Guide</a>
+        <a href="types-of-coffee.html">Coffee Types</a>
+    </nav>
+</header>
+
+<!-- Page Header -->
+<section class="page-header">
+    <h1>Discover Coffee Shops in Iloilo</h1>
+    <p>Find your next favorite café spot.</p>
+</section>
+
+<!-- Search & Filter -->
+<section class="controls">
+    <input type="text" id="searchInput" placeholder="🔍 Search by name...">
+    <select id="districtFilter">
+        <option value="all">All Districts</option>
+        <option value="City Proper">City Proper</option>
+        <option value="Mandurriao">Mandurriao</option>
+        <option value="Jaro">Jaro</option>
+    </select>
+</section>
+
+<!-- Coffee Shops Container -->
+<section id="shopContainer" class="card-grid"></section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Kape Ta Iloilo • Coffee Culture</p>
+</footer>
+
+<!-- Data & Logic -->
+<script>
+const coffeeShops = [
+  {
+    id: 1,
+    name: "Kape Iloilo",
+    district: "City Proper",
+    description: "Artisan coffee brand highlighting local Iloilo beans with specialty brews.",
+    website: "https://kapeiloilo.com/",
+    image: "assets/kapeiloilo.jpg"
+  },
+  {
+    id: 2,
+    name: "Iloilo Coffee House",
+    district: "City Proper",
+    description: "Classic coffee and local brews on Quezon Street.",
+    website: "https://iloilocityspotlights.com/dt_listing/iloilo-coffee-house/",
+    image: "assets/iloilo coffee house.png"
+  },
+  {
+    id: 3,
+    name: "Bluejay Coffee & Company",
+    district: "Mandurriao",
+    description: "Italian-style espresso drinks at SM City Iloilo.",
+    website: "https://www.smsupermalls.com/mall-directory/sm-city-iloilo/shops/bluejay-coffee",
+    image: "assets/bluejay.png"
+  },
+  {
+    id: 4,
+    name: "Madge Café",
+    district: "City Proper",
+    description: "Historic café known for native coffee and local culture.",
+    website: "https://restaurantguru.com/cafe-Iloilo-City-t6",
+    image: "assets/madgecoffee.png"
+  },
+  {
+    id: 5,
+    name: "Coffee Brewtherhood",
+    district: "Jaro",
+    description: "Specialty coffee house famous for espresso and filter brews.",
+    website: "https://restaurantguru.com/cafe-Iloilo-City-t6",
+    image: "assets/brotherhood.png"
+  },
+  {
+    id: 6,
+    name: "The Coffee Bean & Tea Leaf Iloilo",
+    district: "City Proper",
+    description: "Popular international chain serving premium coffee and teas with a cozy ambiance.",
+    website: "https://www.coffeebean.com.ph",
+    image: "assets/coffeebean.png"
+  }
+];
+
+const shopContainer = document.getElementById("shopContainer");
+const searchInput = document.getElementById("searchInput");
+const districtFilter = document.getElementById("districtFilter");
+
+// Render shops
+function renderShops(shops) {
+    shopContainer.innerHTML = "";
+
+    if (shops.length === 0) {
+        shopContainer.innerHTML = "<p>No coffee shops found.</p>";
+        return;
+    }
+
+    shops.forEach(shop => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        card.innerHTML = `
+            <img src="${shop.image}" alt="${shop.name}">
+            <h3>${shop.name}</h3>
+            <p>${shop.description}</p>
+            <p><strong>District:</strong> ${shop.district}</p>
+            <a href="${shop.website}" class="visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit website of ${shop.name}">Visit Website</a>
+        `;
+
+        shopContainer.appendChild(card);
+    });
+}
+
+// Filter & search
+function filterAndSearch() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedDistrict = districtFilter.value;
+
+    const filtered = coffeeShops.filter(shop => {
+        const matchesDistrict = selectedDistrict === "all" || shop.district === selectedDistrict;
+        const matchesSearch = shop.name.toLowerCase().includes(searchTerm);
+        return matchesDistrict && matchesSearch;
+    });
+
+    renderShops(filtered);
+}
+
+// Event listeners
+searchInput.addEventListener("input", filterAndSearch);
+districtFilter.addEventListener("change", filterAndSearch);
+
+// Initial render
+renderShops(coffeeShops);
+</script>
+
+</body>
+</html>

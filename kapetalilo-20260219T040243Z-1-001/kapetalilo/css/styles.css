@@ -1,0 +1,472 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #F5EFE6;
+    color: #2F1B12;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: #2F1B12;
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.navbar nav a {
+    margin-left: 20px;
+    color: #F5EFE6;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #C8A27E;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(47,27,18,0.7), rgba(47,27,18,0.7)),
+                url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.btn-primary {
+    background: #B67352;
+    padding: 12px 25px;
+    color: white;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #8c5239;
+}
+
+/* PAGE HEADER */
+.page-header {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+/* CONTROLS */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.controls input,
+.controls select {
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #C8A27E;
+    outline: none;
+    min-width: 220px;
+}
+
+/* CARD GRID */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 0 40px 60px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #4A2C2A;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #2F1B12;
+    color: #F5EFE6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+}
+
+/* PAGE HEADER IMPROVED */
+.page-header {
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #4A2C2A;
+}
+
+.page-header p {
+    font-size: 16px;
+    color: #7a5c50;
+}
+
+/* IMPROVED GRID SPACING */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 0 60px 80px;
+}
+
+/* CARD PREMIUM STYLE */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(90deg, #B67352, #C8A27E);
+    top: 0;
+    left: 0;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.card p {
+    color: #6b4f45;
+    line-height: 1.5;
+}
+
+/* CONTROLS POLISH */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.controls input,
+.controls select {
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: 1px solid #C8A27E;
+    font-size: 14px;
+    background: white;
+    transition: 0.3s;
+}
+
+.controls input:focus,
+.controls select:focus {
+    border-color: #B67352;
+    box-shadow: 0 0 0 3px rgba(182,115,82,0.2);
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    .card-grid {
+        padding: 0 20px 60px;
+    }
+
+    .page-header h1 {
+        font-size: 26px;
+    }
+}
+
+/* HERO BUTTONS */
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background: #B67352;
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: white;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #8c5239;
+}
+
+.btn-outline {
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: 2px solid white;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #2F1B12;
+}
+
+/* FEATURES SECTION */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 60px 40px;
+    gap: 30px;
+    background: white;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+    color: #4A2C2A;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5ede7; /* soft coffee cream */
+  color: #4a2c2a; /* dark coffee brown */
+  margin: 0;
+  padding: 0 20px 40px 20px;
+}
+
+.navbar {
+  background-color: #6f4e37; /* rich coffee brown */
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f3e9dc;
+  font-weight: 600;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar nav a {
+  color: #f3e9dc;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: #b67352;
+}
+
+.page-header {
+  text-align: center;
+  margin: 40px 0 25px 0;
+}
+
+.page-header h1 {
+  font-size: 2.6rem;
+  margin-bottom: 8px;
+  letter-spacing: 1.2px;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: #7a5c47;
+  font-style: italic;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.controls input[type="text"],
+.controls select {
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: 2px solid #d7c4b6;
+  outline: none;
+  font-size: 1rem;
+  width: 220px;
+  transition: border-color 0.3s ease;
+}
+
+.controls input[type="text"]:focus,
+.controls select:focus {
+  border-color: #b67352;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.card {
+    background: #fffaf6;
+    border-radius: 20px;
+    box-shadow: 0 8px 18px rgba(166, 135, 106, 0.15);
+    padding: 20px 20px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    min-height: 420px; /* ensure uniform height */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(166, 135, 106, 0.25);
+}
+
+/* Image container for consistent sizing */
+.card img {
+    width: 100%;
+    height: 180px; /* fixed height for all images */
+    object-fit: cover; /* crop/fill nicely */
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+/* Titles and text */
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #4a2c2a;
+    padding-left: 28px;
+    position: relative;
+}
+
+.card h3::before {
+    content: "☕";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #5c4a3c;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.card strong {
+  color: #4a2c2a;
+}
+
+.visit-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 22px;
+  background-color: #b67352;
+  color: #fffaf6;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(182, 115, 82, 0.4);
+}
+
+.visit-btn:hover,
+.visit-btn:focus {
+  background-color: #7a4a2e;
+  box-shadow: 0 6px 20px rgba(122, 74, 46, 0.6);
+  outline: none;
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #a88c74;
+  user-select: none;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;       /* fixed height for all images */
+    object-fit: cover;   /* ensures image fills area without stretching */
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
